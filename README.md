@@ -4,6 +4,13 @@
 ```
 
 # install flutter
+
+## 기본설치 tools
+* xcode
+* flutter
+* vscode
+* android sdk
+
 ## 설치하기 
 * [참고 자료](https://flutter-ko.dev/docs/get-started/install/macos)
   * flutter 레퍼런스에 자세하게 설명 되어있음.
