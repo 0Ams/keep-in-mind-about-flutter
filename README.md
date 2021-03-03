@@ -45,13 +45,17 @@ Flutter는 Google에서 개발하고 Mobile World Congress 2018에서 최초 베
 ## 설치하기 
 * [참고 자료](https://flutter-ko.dev/docs/get-started/install/macos)
   * flutter 레퍼런스에 자세하게 설명 되어있음.
+```bash
+git clone -b stable https://github.com/flutter/flutter.git
+flutter upgrade
+```
 
 ## 설정
  * `~.zshrc` 또는 `~.bashrc`에 path추가.
   * 지속적으로 flutter를 사용하기 위한 path 설정
 
 example) 
-```
+```bash
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
 export PATH="$PATH:~/flutter/bin" # flutter를 다운 받아서 압축을 푼곳
 ```
@@ -90,6 +94,50 @@ Doctor summary (to see all details, run flutter doctor -v):
 ! Doctor found issues in 4 categories.
 ```
 * 문제 있는 요소에 대해 설치 하는 가이드나 문제점 해결을 위해서 찾아 해결을 하면 된다.
+
+## 시뮬레이터설정
+appstore 에서 xcode는 별도 설치해준다
+```bash
+xcode-select --switch /Applications/Xcode.app/Contents/Developer
+open -a Simulator
+flutter run
+```
+
+## IOS 배포
+```bash
+brew update
+brew install --HEAD usbmuxd
+brew link usbmuxd
+brew install --HEAD libimobiledevice
+brew install ideviceinstaller ios-deploy cocoapods
+pod setup
+```
+
+## Debugging 하기
+`launch.json`에 아래와 같이 추가
+```bash
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Flutter",
+      "request": "launch",
+      "type": "dart"
+    }
+  ]
+}
+```
+
+## sample
+많은 예제들을 찾아볼 수 있음.
+1. https://github.com/flutter/samples
+2. https://github.com/iampawan/FlutterExampleApps
+   * 종류별로 기본 템플릿 앱이 많음
+   * 공부 하는데도 사용하는데도 좋을듯함
+3. https://gallery.flutter.dev/
+   * 템플릿 가져다 쓸 수 있는 사이트
+4. https://fluttercommunity.slack.com/ssb/redirect
+   * flutter slack 채널 이야기 나누거나 피드백 받기 좋음
 
 ## Ios 개발 with flutter
 [Video Label](https://www.youtube.com/watch?v=3PdUaidHc-E&feature=youtu.be)
